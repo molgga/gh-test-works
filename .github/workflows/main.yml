@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Job-build echo
+        run: echo "TEST_VAR ${{secrets.TEST_VAR}}"
+
       - name: Job-build Install dependencies
         run: yarn install --frozen-lockfile # yarn 사용시 npm ci 와 같다
 
