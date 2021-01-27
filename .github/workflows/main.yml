@@ -15,7 +15,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [12.x]
+        # node-version: [10.x, 12.x, 14.x, 15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -32,5 +33,9 @@ jobs:
       - name: Job-build Build
         run: npm run build
 
-      - name: Job-build Test
+  test-unit:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job-test-unit Test
         run: npm run test:unit
