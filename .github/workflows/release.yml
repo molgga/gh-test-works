@@ -16,32 +16,23 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      #    registry-url: https://registry.npmjs.org/
+      - run: echo "=(s)========== install, build, test ============"
       - run: yarn install --frozen-lockfile # yarn 사용시 npm ci 와 같다
       - run: npm run build
       - run: npm run test:unit
+      - run: echo "=(e)========== install, build, test ============"
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # - uses: actions/checkout@v2
-      # - uses: actions/setup-node@v1
-      #   with:
-      #    node-version: 12
-      #    registry-url: https://registry.npmjs.org/
+      - run: echo "=(s)========== npm publish ============"
       - run: echo "hello publish-npm"
-      # - run: npm ci
       # - run: npm publish
       #  env:
       #    NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: echo "=(e)========== npm publish ============"
 
-  publish-pages:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+      - run: echo "=(s)========== github pages publish ============"
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: './dist'
-      - run: echo "hello publish-pages"
+      - run: echo "=(e)========== github pages publish ============"
