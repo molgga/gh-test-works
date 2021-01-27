@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 12
       - run: yarn install --frozen-lockfile # yarn 사용시 npm ci 와 같다
+      - run: npm run build
       - run: npm run test:unit
 
   publish-npm:
