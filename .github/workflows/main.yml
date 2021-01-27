@@ -13,18 +13,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # strategy:
-    #  matrix:
-    #    node-version: [12.x]
-    # node-version: [10.x, 12.x, 14.x, 15.x]
-    # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    strategy:
+      matrix:
+        node-version: [12.x]
+        # node-version: [10.x, 12.x, 14.x, 15.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: ${{ matrix.node-version }}
 
       - name: Job-build Install dependencies
         run: yarn install --frozen-lockfile # yarn 사용시 npm ci 와 같다
@@ -33,5 +33,5 @@ jobs:
       - name: Job-build Build
         run: npm run build
 
-      - name: Job-test-unit Test
+      - name: Job-build Test
         run: npm run test:unit
