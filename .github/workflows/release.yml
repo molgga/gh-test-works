@@ -6,7 +6,7 @@ name: Release deploy
 on:
   release:
     types:
-      - created
+      - created # released, created, published 3가지 타입이 있는데 타입을 명시하지 않으면 workflows 가 3개 실행된다.
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+**'
 
