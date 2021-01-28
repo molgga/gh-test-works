@@ -11,7 +11,10 @@ coverage:
       default:
         target: auto # auto % coverage target
         threshold: 100% # allow for 5% reduction of coverage without failing
-    patch: false
+    patch:
+      default:
+        target: auto # auto % coverage target
+        threshold: 100% # allow for 5% reduction of coverage without failing
 
 comment:
   layout: 'reach, diff, flags, files'
