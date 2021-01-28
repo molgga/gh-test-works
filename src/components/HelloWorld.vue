@@ -113,6 +113,9 @@ export default defineComponent({
     ping4() {
       return 4;
     },
+    ping5() {
+      return 5;
+    },
   },
 });
 </script>

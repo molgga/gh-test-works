@@ -11,5 +11,6 @@ describe('HelloWorld.vue', () => {
     expect(wrapper.vm.ping1()).toBe(1);
     expect(wrapper.vm.ping2()).toBe(2);
     expect(wrapper.vm.ping3()).toBe(3);
+    expect(wrapper.vm.ping4()).toBe(4);
   });
 });

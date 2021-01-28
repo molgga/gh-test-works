@@ -1,11 +1,12 @@
+codecov:
+  bot: 'codecov-io'
+  strict_yaml_branch: 'yaml-config'
+  max_report_age: 24
+  disable_default_path_fixes: no
+
 coverage:
   range: 50..90 # coverage lower than 50 is red, higher than 90 green, between color code
-
   status:
-    # project:
-    #   default:
-    #     target: auto # auto % coverage target
-    #     threshold: 5%  # allow for 5% reduction of coverage without failing
     project:
       default:
         target: auto # auto % coverage target
