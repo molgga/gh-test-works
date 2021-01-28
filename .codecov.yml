@@ -7,14 +7,16 @@ codecov:
   # notify:
   #   after_n_builds: 1
   status:
-    project:
-      default:
-        target: 0
-        threshold: null
-    patch:
-      default:
-        target: 0
-        threshold: null
+    project: no
+    patch: no
+    # project:
+    #   default:
+    #     target: 0
+    #     threshold: null
+    # patch:
+    #   default:
+    #     target: 0
+    #     threshold: null
 
 comment:
   layout: 'reach, diff, flags, files'
