@@ -9,12 +9,18 @@ codecov:
   status:
     # project: no
     # patch: no
-    if_ci_failed: success
-    informational: true
-    # project:
-    #   default:
-    #     target: 0
-    #     threshold: null
+    # if_ci_failed: success
+    # informational: true
+    project:
+      default:
+        enabled: false
+        # target: auto
+        # threshold: 100%
+    patch:
+      default:
+        enabled: false
+        # target: auto
+        # threshold: 100%
 
 comment:
   layout: 'reach, diff, flags, files'
