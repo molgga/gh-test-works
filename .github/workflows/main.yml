@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        # node-version: [10.x, 12.x, 14.x, 15.x] 여러개의 node 버전으로 확인해야 한다면 다음과 같이 사용할 수 있다.(각 node 버전으로 workflow 가 병렬로 실행된다.)
+        # node-version: [10.x, 12.x, 14.x, 15.x] 여러개의 node 버전으로 확인해야 한다면 다음과 같이 사용할 수 있다.(각 node 버전으로 jobs 가 병렬로 실행된다.)
         # os: [ubuntu-latest, macos-latest, windows-latest] 와 같이 OS matrix 도 있다.
         # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
 

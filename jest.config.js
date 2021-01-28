@@ -4,5 +4,5 @@ module.exports = {
     '^.+\\.vue$': 'vue-jest',
   },
   collectCoverage: true,
-  coverageReporters: ['html'],
+  coverageReporters: ['lcov', 'html'],
 };
