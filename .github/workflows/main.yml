@@ -4,10 +4,10 @@
 name: Build & Test
 
 on:
-  push:
+  push: # push 된 branch 가 main 일 때.
     branches:
       - main
-  pull_request:
+  pull_request: # PR 타겟 브랜치가 main 일 때.
     branches:
       - main
 
@@ -18,22 +18,27 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        # node-version: [10.x, 12.x, 14.x, 15.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        # node-version: [10.x, 12.x, 14.x, 15.x] 여러개의 node 버전으로 확인해야 한다면 다음과 같이 사용할 수 있다.(각 node 버전으로 workflow 가 병렬로 실행된다.)
+        # os: [ubuntu-latest, macos-latest, windows-latest] 와 같이 OS matrix 도 있다.
+        # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
 
     steps:
-      - name: Job-build echo
-        run: echo "TEST_VAR ${{secrets.TEST_VAR}}"
-      # - uses: actions/checkout@v2
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v2 # 이건 누군가 만들어 놓은 actions
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+        run: |
+          run: yarn install --frozen-lockfile
+          npm run build
+          npm run test:unit
+
+      - uses: codecov/codecov-action@v1
+        with:
+          directory: ./coverage
       # - name: Job-build echo
-      #   run: echo "TEST_VAR ${{secrets.TEST_VAR}}"
+      #   run: echo "TEST_VAR ${{secrets.TEST_VAR}}"  # secrets 는 Github 사이트의 레포지토리 settings 에서 만들 수 있다.
       # - name: Job-build Install dependencies
       #   run: yarn install --frozen-lockfile # yarn 사용시 npm ci 와 같다
-      #   # run: npm ci
       # - name: Job-build Build
       #   run: npm run build
       # - name: Job-build Test
