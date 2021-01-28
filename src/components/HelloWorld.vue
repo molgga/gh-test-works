@@ -104,6 +104,9 @@ export default defineComponent({
     ping1() {
       return 1;
     },
+    ping2() {
+      return 2;
+    },
   },
 });
 </script>
