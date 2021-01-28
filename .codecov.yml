@@ -13,10 +13,6 @@ codecov:
     #   default:
     #     target: 0
     #     threshold: null
-    # patch:
-    #   default:
-    #     target: 0
-    #     threshold: null
 
 comment:
   layout: 'reach, diff, flags, files'
