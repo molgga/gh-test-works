@@ -1,26 +1,11 @@
-# see: https://docs.codecov.io/docs/codecovyml-reference
-codecov:
-  bot: 'codecov-io'
-  # strict_yaml_branch: 'yaml-config'
-  max_report_age: 24
-  disable_default_path_fixes: no
-  # notify:
-  #   after_n_builds: 1
+coverage:
+  range: 50..90 # coverage lower than 50 is red, higher than 90 green, between color code
+
   status:
-    # project: no
-    # patch: no
-    # if_ci_failed: success
-    # informational: true
     # project:
     #   default:
-    #     enabled: false
-    #     # target: auto
-    #     # threshold: 100%
-    # patch:
-    #   default:
-    #     enabled: false
-    #     # target: auto
-    #     # threshold: 100%
+    #     target: auto # auto % coverage target
+    #     threshold: 5%  # allow for 5% reduction of coverage without failing
     project: false
     patch: false
 
