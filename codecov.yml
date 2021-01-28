@@ -8,8 +8,8 @@ coverage:
     #     threshold: 5%  # allow for 5% reduction of coverage without failing
     project:
       default:
-        target: auto # auto % coverage target
-        threshold: 99% # allow for 5% reduction of coverage without failing
+        target: 0
+        threshold: null # allow for 5% reduction of coverage without failing
     patch: false
 
 comment:
