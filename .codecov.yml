@@ -1,0 +1,8 @@
+# see: https://docs.codecov.io/docs/codecovyml-reference
+codecov:
+  bot: 'codecov-io'
+  strict_yaml_branch: 'yaml-config'
+  max_report_age: 24
+  disable_default_path_fixes: no
+  notify:
+    after_n_builds: 1
