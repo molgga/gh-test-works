@@ -7,8 +7,10 @@ codecov:
   # notify:
   #   after_n_builds: 1
   status:
-    project: no
-    patch: no
+    # project: no
+    # patch: no
+    if_ci_failed: success
+    informational: true
     # project:
     #   default:
     #     target: 0
