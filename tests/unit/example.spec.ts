@@ -10,5 +10,6 @@ describe('HelloWorld.vue', () => {
     expect(wrapper.text()).toMatch(msg);
     expect(wrapper.vm.ping1()).toBe(1);
     expect(wrapper.vm.ping2()).toBe(2);
+    expect(wrapper.vm.ping3()).toBe(3);
   });
 });
