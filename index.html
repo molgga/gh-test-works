@@ -9,10 +9,14 @@
   </head>
   <body>
     Hello
-    <button onclick="onTest()">button</button>
+    <button onclick="onTest1()">referrer</button>
+    <button onclick="onTest2()">opener</button>
     <script>
-      function onTest() {
+      function onTest1() {
         alert(document.referrer);
+      }
+      function onTest2() {
+        alert(!!window.opener);
       }
     </script>
   </body>
