@@ -12,6 +12,7 @@
     <button onclick="onTest1()">referrer</button>
     <button onclick="onTest2()">opener</button>
     <button onclick="onTest3()">history.back</button>
+    <button onclick="onTest4()">close</button>
     <script>
       function onTest1() {
         alert(document.referrer);
@@ -21,6 +22,9 @@
       }
       function onTest3() {
         history.back();
+      }
+      function onTest4() {
+        window.close();
       }
     </script>
   </body>
