@@ -11,12 +11,16 @@
     Hello
     <button onclick="onTest1()">referrer</button>
     <button onclick="onTest2()">opener</button>
+    <button onclick="onTest3()">history.back</button>
     <script>
       function onTest1() {
         alert(document.referrer);
       }
       function onTest2() {
         alert(!!window.opener);
+      }
+      function onTest3() {
+        history.back();
       }
     </script>
   </body>
