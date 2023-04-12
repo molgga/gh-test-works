@@ -6,26 +6,44 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
     <title>gh-test-works</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
   </head>
   <body>
-    Hello
-    <button onclick="onTest1()">referrer</button>
-    <button onclick="onTest2()">opener</button>
-    <button onclick="onTest3()">history.back</button>
-    <button onclick="onTest4()">close</button>
+    <div id="app">
+      Hello
+      <button @click="onAlertReferer">onAlertReferer</button>
+      <button onclick="onAlertOpener()">onAlertOpener</button>
+      <button onclick="onHistoryBack()">onHistoryBack</button>
+      <button onclick="onWindowClose()">onWindowClose</button>
+      <br/>
+      <br/>
+      <input type="text" id="inputUrl" />
+      <button onclick="onWindowClose()">onWindowClose</button>
+    </div>
+    
     <script>
-      function onTest1() {
-        alert(document.referrer);
-      }
-      function onTest2() {
+      function onAlertOpener() {
         alert(!!window.opener);
       }
-      function onTest3() {
+      function onHistoryBack() {
         history.back();
       }
-      function onTest4() {
+      function onWindowClose() {
         window.close();
       }
+      (() => {
+        const app = new Vue({
+          el: '#app',
+          setup() {
+            const onAlertReferer = () => {
+              alert(document.referrer);
+            };
+            return {
+              onAlertReferer
+            }
+          }
+        })
+      })();
     </script>
   </body>
 </html>
