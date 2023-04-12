@@ -12,38 +12,59 @@
     <div id="app">
       Hello
       <button @click="onAlertReferer">onAlertReferer</button>
-      <button onclick="onAlertOpener()">onAlertOpener</button>
-      <button onclick="onHistoryBack()">onHistoryBack</button>
-      <button onclick="onWindowClose()">onWindowClose</button>
+      <button @click="onAlertOpener">onAlertOpener</button>
+      <button @click="onHistoryBack">onHistoryBack</button>
+      <button @click="onWindowClose">onWindowClose</button>
       <br/>
       <br/>
-      <input type="text" id="inputUrl" />
-      <button onclick="onWindowClose()">onWindowClose</button>
+      <input type="text" v-model="state.inputUrl" />
+      {{state.inputUrl}}
+      <button @click="onLocationReplace">onLocationReplace</button>
+      <button @click="onLocationHref">onLocationHref</button>
+      <button @click="onLocationWindowOpen">onLocationWindowOpen</button>
     </div>
-    
-    <script>
-      function onAlertOpener() {
-        alert(!!window.opener);
-      }
-      function onHistoryBack() {
-        history.back();
-      }
-      function onWindowClose() {
-        window.close();
-      }
-      (() => {
-        const app = new Vue({
-          el: '#app',
-          setup() {
-            const onAlertReferer = () => {
-              alert(document.referrer);
-            };
-            return {
-              onAlertReferer
-            }
-          }
-        })
-      })();
-    </script>
+<script>
+(() => {
+const app = new Vue({
+  el: '#app',
+  setup() {
+    const state = reactive({
+      
+    });
+    const onAlertReferer = () => {
+      alert(document.referrer);
+    };
+    const onAlertOpener = () => {
+      alert(!!window.opener);
+    };
+    const onHistoryBack = () => {
+      history.back();
+    };
+    const onWindowClose = () => {
+      window.close();
+    };
+    const onLocationReplace = () => {
+      location.replace(state.inputUrl);
+    };
+    const onLocationHref = () => {
+      location.href = state.inputUrl;
+    };
+    const onLocationWindowOpen = () => {
+      window.open(state.inputUrl);
+    };
+    return {
+      state,
+      onAlertReferer,
+      onAlertOpener,
+      onHistoryBack,
+      onWindowClose,
+      onLocationReplace,
+      onLocationHref,
+      onLocationWindowOpen,
+    }
+  }
+})
+})();
+</script>
   </body>
 </html>
