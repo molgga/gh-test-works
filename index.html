@@ -25,11 +25,11 @@
     </div>
 <script>
 (() => {
-const app = new Vue({
-  el: '#app',
+const { createApp, reactive } = Vue;
+createApp({
   setup() {
     const state = reactive({
-      
+      inputUrl: '',
     });
     const onAlertReferer = () => {
       alert(document.referrer);
@@ -63,7 +63,7 @@ const app = new Vue({
       onLocationWindowOpen,
     }
   }
-})
+}).mount('#app')
 })();
 </script>
   </body>
