@@ -1,6 +1,6 @@
 # gh-test-works
 
-foo
+foo bar
 
 ## Project setup
 
